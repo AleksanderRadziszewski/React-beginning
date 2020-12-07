@@ -1,2 +1,2 @@
 # React-beginning
-This's my beginning with react. I've decided to learn some more :)
+This's my beginning with React. I've decided to learn some more :)

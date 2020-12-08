@@ -1,8 +1,19 @@
 .app{
-  height: 100vh;
+  min-height: 100vh;
   background: rgb(95, 152, 172);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .tweet{
-  border: 2px solid black;
+  height: 300px;
+  width: 300px;
+  background: white;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+ 
 }

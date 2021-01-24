@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    
+    <div id="app"> </div>
+    <script type="text/babel">
+        const Names = () => {
+             {  const[showNameState, setShowNameState] = React.useState(true)
+                const names = ['Kevin', 'Oscar', 'David']
+                const namesList = names.map(name => <li key = {name}>{name}</li>)
+                const toggleNames = () => setShowNameState(!showNameState)
+                return (
+                    <div>
+                        {showNameState ? <ul>{namesList}</ul> : 'no Names' }
+                        <button onClick = {toggleNames}>Toggle names</button>
+                    </div>
+                )
+            }
+        }
+        
+        class Headline extends React.Component{
+            state = {
+                title:'Hello Aleksander !!!'
+            }
+            render() {
+                const changeTitle = () => { this.setState({title:'Bye Alex!!!'})}
+                return (
+                <div>
+                    <h1>{this.state.title}</h1>
+                    <Names />
+                    <button onClick = {changeTitle}>Change title</button>
+                    
+                
+                </div>)
+            } 
+        }
+        ReactDOM.render(<Headline />,
+         document.querySelector('#app'))
+    </script>
+</body>
+</html>

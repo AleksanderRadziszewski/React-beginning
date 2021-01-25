@@ -14,15 +14,12 @@
     
     <div id="app"> </div>
     <script type="text/babel">
-        const Names = () => {
-             {  const[showNameState, setShowNameState] = React.useState(true)
-                const names = ['Kevin', 'Oscar', 'David']
+        const Names = props => {
+             {  const names = ['Kevin', 'Oscar', 'David']
                 const namesList = names.map(name => <li key = {name}>{name}</li>)
-                const toggleNames = () => setShowNameState(!showNameState)
                 return (
                     <div>
-                        {showNameState ? <ul>{namesList}</ul> : 'no Names' }
-                        <button onClick = {toggleNames}>Toggle names</button>
+                        {props.test ? <ul>{namesList}</ul> : 'no Names' }
                     </div>
                 )
             }
@@ -30,15 +27,20 @@
         
         class Headline extends React.Component{
             state = {
-                title:'Hello Aleksander !!!'
+                title:'Hello Aleksander !!!',
+                showNames: true
+            }
+            toggleNames(){
+                this.setState({showNames:!this.state.showNames})
             }
             render() {
                 const changeTitle = () => { this.setState({title:'Bye Alex!!!'})}
                 return (
                 <div>
                     <h1>{this.state.title}</h1>
-                    <Names />
+                    <Names test={this.state.showNames}/>
                     <button onClick = {changeTitle}>Change title</button>
+                    <button onClick = {()=>this.toggleNames()}>Toggle names</button>
                     
                 
                 </div>)

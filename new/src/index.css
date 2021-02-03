@@ -17,3 +17,11 @@ code {
   border: 1px solid #ccddcc;
   margin:10px;
 }
+
+.card.complated{
+  opacity: .5;
+
+}
+.card.complated h2{
+  text-decoration: line-through;  
+}

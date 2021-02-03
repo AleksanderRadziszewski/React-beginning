@@ -2,8 +2,7 @@ import React from 'react';
 
 const TodoItem = props => {
     return(
-        <div key={props.element.id} className="card">
-        
+        <div className={`card ${props.element.isComplated ? 'complated' : ''} `}  key={props.element.id}>
             <h2>{props.element.title}</h2>
             <button>Zakończone</button>
         

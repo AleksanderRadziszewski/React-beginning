@@ -18,10 +18,10 @@ code {
   margin:10px;
 }
 
-.card.complated{
+.card.completed{
   opacity: .5;
 
 }
-.card.complated h2{
+.card.completed h2{
   text-decoration: line-through;  
 }

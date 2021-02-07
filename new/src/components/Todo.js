@@ -6,8 +6,8 @@ class Todo extends React.Component{
         elements: [
             {id:'343445', title:'shopping', isCompleted:true},
             {id:'343446', title:'pay the bills', isCompleted:false},
-
-        ]
+        ],
+        inputValue:''
     }
     markCompleted (id){
         const index = this.state.elements.findIndex(x => x.id === id)
@@ -15,6 +15,20 @@ class Todo extends React.Component{
         newElements[index].isCompleted = true
 
         this.setState({elements:newElements})
+    }
+    addItem() {
+        const item = {
+            id: Math.random(),
+            title: this.state.inputValue
+        }
+        const newElements = [item, ...this.state.elements]
+        this.setState({elements: newElements})
+        this.setState({inputValue: ''})
+    }
+
+    inputHandler(event) {
+        const newValue = event.target.value
+        this.setState({inputValue: newValue})
     }
 render(){
 const elements = this.state.elements.map(element => {
@@ -24,6 +38,8 @@ const elements = this.state.elements.map(element => {
     return(
         <div>
             Todo app
+            <input type="text" value={this.state.inputValue} onChange={this.inputHandler.bind(this)}/>
+            <button onClick={this.addItem.bind(this)}>add to list</button>
             {elements}
         </div>
     )
